@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "stockpouches",
+  "version": "${version}",
+  "name": "Stock Pouches",
+  "description": "Specialized pouches for keeping massive stocks of mundane resources.",
+  "authors": ["Paramada"],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "net.paramada.stockpouches.client.StockpouchesDataGenerator"
+    ],
+    "client": [
+      "net.paramada.stockpouches.client.StockpouchesClient"
+    ],
+    "main": [
+      "net.paramada.stockpouches.Stockpouches"
+    ]
+  },
+  "mixins": [
+    "stockpouches.mixins.json",
+    {
+      "config": "stockpouches.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

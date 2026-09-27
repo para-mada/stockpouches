@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:leaves",
+    "#minecraft:saplings",
+    "#minecraft:flowers",
+    "minecraft:vine",
+    "minecraft:moss_block",
+    "minecraft:moss_carpet",
+    "minecraft:brown_mushroom",
+    "minecraft:red_mushroom",
+    "minecraft:cactus",
+    "minecraft:bamboo"
+  ]
+}

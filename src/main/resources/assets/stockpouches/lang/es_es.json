@@ -1,0 +1,12 @@
+{
+  "item.stockpouches.quarry_pouch": "Bolsa de cantera",
+  "item.stockpouches.lumberjack_pouch": "Bolsa de leñador",
+  "item.stockpouches.hunter_pouch": "Bolsa de cazador",
+  "item.stockpouches.ranger_pouch": "Bolsa de explorador",
+  "item.stockpouches.farmer_pouch": "Bolsa de granjero",
+  "tooltip.stockpouches.empty": "Vacía",
+  "tooltip.stockpouches.entry": "%1$s × %2$s",
+  "tooltip.stockpouches.more": "+ %s tipos más",
+  "tooltip.stockpouches.total": "Total: %s",
+  "tooltip.stockpouches.scroll": "Usa la rueda para elegir el siguiente stack"
+}

@@ -1,0 +1,12 @@
+{
+  "item.stockpouches.quarry_pouch": "Quarry Pouch",
+  "item.stockpouches.lumberjack_pouch": "Lumberjack's Pouch",
+  "item.stockpouches.hunter_pouch": "Hunter's Pouch",
+  "item.stockpouches.ranger_pouch": "Ranger's Pouch",
+  "item.stockpouches.farmer_pouch": "Farmer's Pouch",
+  "tooltip.stockpouches.empty": "Empty",
+  "tooltip.stockpouches.entry": "%1$s × %2$s",
+  "tooltip.stockpouches.more": "+ %s more types",
+  "tooltip.stockpouches.total": "Total: %s",
+  "tooltip.stockpouches.scroll": "Scroll to select the next stack"
+}

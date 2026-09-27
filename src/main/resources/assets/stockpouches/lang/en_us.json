@@ -4,6 +4,7 @@
   "item.stockpouches.hunter_pouch": "Hunter's Pouch",
   "item.stockpouches.ranger_pouch": "Ranger's Pouch",
   "item.stockpouches.farmer_pouch": "Farmer's Pouch",
+  "itemGroup.stockpouches.stock_pouches": "Stock Pouches",
   "tooltip.stockpouches.empty": "Empty",
   "tooltip.stockpouches.entry": "%1$s × %2$s",
   "tooltip.stockpouches.more": "+ %s more types",

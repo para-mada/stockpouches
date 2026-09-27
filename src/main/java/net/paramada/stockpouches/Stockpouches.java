@@ -2,6 +2,7 @@ package net.paramada.stockpouches;
 
 import net.fabricmc.api.ModInitializer;
 import net.paramada.stockpouches.component.ModDataComponents;
+import net.paramada.stockpouches.item.ModCreativeTabs;
 import net.paramada.stockpouches.item.ModItems;
 import net.paramada.stockpouches.recipe.ModRecipes;
 import net.paramada.stockpouches.network.ModNetworking;
@@ -19,6 +20,7 @@ public class Stockpouches implements ModInitializer {
     public void onInitialize() {
         ModDataComponents.initialize();
         ModItems.initialize();
+        ModCreativeTabs.initialize();
         ModRecipes.initialize();
         ModNetworking.initialize();
     }

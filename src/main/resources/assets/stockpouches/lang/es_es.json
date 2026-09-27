@@ -4,6 +4,7 @@
   "item.stockpouches.hunter_pouch": "Bolsa de cazador",
   "item.stockpouches.ranger_pouch": "Bolsa de explorador",
   "item.stockpouches.farmer_pouch": "Bolsa de granjero",
+  "itemGroup.stockpouches.stock_pouches": "Bolsas de inventario",
   "tooltip.stockpouches.empty": "Vacía",
   "tooltip.stockpouches.entry": "%1$s × %2$s",
   "tooltip.stockpouches.more": "+ %s tipos más",

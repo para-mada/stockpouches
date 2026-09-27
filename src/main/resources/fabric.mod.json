@@ -4,6 +4,7 @@
   "version": "${version}",
   "name": "Stock Pouches",
   "description": "Specialized pouches for keeping massive stocks of mundane resources.",
+  "icon": "assets/stockpouches/icon.png",
   "authors": ["Paramada"],
   "contact": {},
   "license": "All-Rights-Reserved",

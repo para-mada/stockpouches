@@ -16,6 +16,15 @@ public final class ModDataComponents {
                     .build()
     );
 
+    public static final DataComponentType<SingleTypePouchContents> SINGLE_TYPE_POUCH_CONTENTS = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            Stockpouches.id("single_type_contents"),
+            DataComponentType.<SingleTypePouchContents>builder()
+                    .persistent(SingleTypePouchContents.CODEC)
+                    .networkSynchronized(SingleTypePouchContents.STREAM_CODEC)
+                    .build()
+    );
+
     private ModDataComponents() {}
 
     public static void initialize() {

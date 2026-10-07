@@ -12,6 +12,7 @@ public final class ModItemIds {
     public static final ResourceKey<Item> HUNTER_POUCH = create("hunter_pouch");
     public static final ResourceKey<Item> RANGER_POUCH = create("ranger_pouch");
     public static final ResourceKey<Item> FARMER_POUCH = create("farmer_pouch");
+    public static final ResourceKey<Item> POTION_POUCH = create("potion_pouch");
 
     private ModItemIds() {}
 

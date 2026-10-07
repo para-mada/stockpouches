@@ -1,4 +1,4 @@
 {
   "parent": "minecraft:item/generated",
-  "textures": { "layer0": "minecraft:item/green_bundle" }
+  "textures": { "layer0": "stockpouches:item/ranger_pouch" }
 }

@@ -9,6 +9,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.paramada.stockpouches.component.ModDataComponents;
 import net.paramada.stockpouches.component.PouchContents;
+import net.paramada.stockpouches.component.SingleTypePouchContents;
 import net.paramada.stockpouches.tag.ModItemTags;
 
 public final class ModItems {
@@ -18,6 +19,7 @@ public final class ModItems {
     public static final Item HUNTER_POUCH = register(ModItemIds.HUNTER_POUCH, ModItemTags.HUNTER);
     public static final Item RANGER_POUCH = register(ModItemIds.RANGER_POUCH, ModItemTags.RANGER);
     public static final Item FARMER_POUCH = register(ModItemIds.FARMER_POUCH, ModItemTags.FARMER);
+    public static final Item POTION_POUCH = registerPotionPouch();
 
     private ModItems() {}
 
@@ -30,6 +32,18 @@ public final class ModItems {
         return Registry.register(BuiltInRegistries.ITEM, key, item);
     }
 
+    private static Item registerPotionPouch() {
+        Item.Properties properties = new Item.Properties()
+                .stacksTo(1)
+                .component(ModDataComponents.SINGLE_TYPE_POUCH_CONTENTS, SingleTypePouchContents.EMPTY)
+                .setId(ModItemIds.POTION_POUCH);
+        return Registry.register(
+                BuiltInRegistries.ITEM,
+                ModItemIds.POTION_POUCH,
+                new PotionPouchItem(properties)
+        );
+    }
+
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
             entries.accept(QUARRY_POUCH);
@@ -37,6 +51,7 @@ public final class ModItems {
             entries.accept(HUNTER_POUCH);
             entries.accept(RANGER_POUCH);
             entries.accept(FARMER_POUCH);
+            entries.accept(POTION_POUCH);
         });
     }
 }

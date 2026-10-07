@@ -32,6 +32,7 @@ public final class ModCreativeTabs {
                             output.accept(ModItems.HUNTER_POUCH);
                             output.accept(ModItems.RANGER_POUCH);
                             output.accept(ModItems.FARMER_POUCH);
+                            output.accept(ModItems.POTION_POUCH);
                         })
                         .build()
         );

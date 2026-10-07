@@ -5,6 +5,7 @@
   "item.stockpouches.ranger_pouch": "Ranger's Pouch",
   "item.stockpouches.farmer_pouch": "Farmer's Pouch",
   "item.stockpouches.potion_pouch": "Potion Pouch",
+  "item.stockpouches.totem_pouch": "Totem Pouch",
   "itemGroup.stockpouches.stock_pouches": "Stock Pouches",
   "tooltip.stockpouches.empty": "Empty",
   "tooltip.stockpouches.entry": "%1$s × %2$s",
@@ -12,5 +13,8 @@
   "tooltip.stockpouches.total": "Total: %s",
   "tooltip.stockpouches.scroll": "Scroll to select the next stack",
   "tooltip.stockpouches.single_type": "%1$s × %2$s/%3$s",
-  "tooltip.stockpouches.potion_pouch.use": "Use to extract one potion into your inventory"
+  "tooltip.stockpouches.potion_pouch.use": "Use to extract one potion into your inventory",
+  "tooltip.stockpouches.totem_pouch.restriction": "Inventory only; cannot enter the hotbar or offhand",
+  "tooltip.stockpouches.totem_pouch.swap": "Press F to equip one totem",
+  "tooltip.stockpouches.totem_pouch.extract": "Right-click to extract one totem"
 }

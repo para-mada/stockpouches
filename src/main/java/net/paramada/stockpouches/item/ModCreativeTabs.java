@@ -33,6 +33,7 @@ public final class ModCreativeTabs {
                             output.accept(ModItems.RANGER_POUCH);
                             output.accept(ModItems.FARMER_POUCH);
                             output.accept(ModItems.POTION_POUCH);
+                            output.accept(ModItems.TOTEM_POUCH);
                         })
                         .build()
         );

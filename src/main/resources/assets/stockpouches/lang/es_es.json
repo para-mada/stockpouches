@@ -5,6 +5,7 @@
   "item.stockpouches.ranger_pouch": "Bolsa de explorador",
   "item.stockpouches.farmer_pouch": "Bolsa de granjero",
   "item.stockpouches.potion_pouch": "Bolsa de pociones",
+  "item.stockpouches.totem_pouch": "Bolsa de tótems",
   "itemGroup.stockpouches.stock_pouches": "Bolsas de inventario",
   "tooltip.stockpouches.empty": "Vacía",
   "tooltip.stockpouches.entry": "%1$s × %2$s",
@@ -12,5 +13,8 @@
   "tooltip.stockpouches.total": "Total: %s",
   "tooltip.stockpouches.scroll": "Usa la rueda para elegir el siguiente stack",
   "tooltip.stockpouches.single_type": "%1$s × %2$s/%3$s",
-  "tooltip.stockpouches.potion_pouch.use": "Usa para extraer una poción al inventario"
+  "tooltip.stockpouches.potion_pouch.use": "Usa para extraer una poción al inventario",
+  "tooltip.stockpouches.totem_pouch.restriction": "Sólo inventario; no puede ir a la hotbar ni a la mano secundaria",
+  "tooltip.stockpouches.totem_pouch.swap": "Pulsa F para equipar un tótem",
+  "tooltip.stockpouches.totem_pouch.extract": "Haz clic derecho para extraer un tótem"
 }

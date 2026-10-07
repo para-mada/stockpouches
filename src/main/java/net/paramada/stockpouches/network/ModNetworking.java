@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.paramada.stockpouches.component.ModDataComponents;
 import net.paramada.stockpouches.component.PouchContents;
 import net.paramada.stockpouches.item.StockPouchItem;
+import net.paramada.stockpouches.item.TotemPouchItem;
 
 public final class ModNetworking {
 
@@ -16,6 +17,10 @@ public final class ModNetworking {
         PayloadTypeRegistry.serverboundPlay().register(
                 SelectPouchEntryPayload.TYPE,
                 SelectPouchEntryPayload.STREAM_CODEC
+        );
+        PayloadTypeRegistry.serverboundPlay().register(
+                ExtractTotemPayload.TYPE,
+                ExtractTotemPayload.STREAM_CODEC
         );
         ServerPlayNetworking.registerGlobalReceiver(SelectPouchEntryPayload.TYPE, (payload, context) -> {
             if (payload.slotId() < 0 || payload.slotId() >= context.player().containerMenu.slots.size()) {
@@ -35,6 +40,11 @@ public final class ModNetworking {
 
             pouch.set(ModDataComponents.POUCH_CONTENTS, contents.withSelectedIndex(payload.selectedIndex()));
             context.player().containerMenu.broadcastChanges();
+        });
+        ServerPlayNetworking.registerGlobalReceiver(ExtractTotemPayload.TYPE, (payload, context) -> {
+            if (TotemPouchItem.extractFromInventoryOrCursor(context.player(), payload.inventorySlot())) {
+                context.player().containerMenu.broadcastChanges();
+            }
         });
     }
 }

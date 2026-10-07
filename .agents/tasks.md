@@ -91,7 +91,8 @@ observado desde Forged y son hipótesis que StockPouches debe confirmar.
 - **Estado:** completada el 2026-10-06; se aprobaron las recomendaciones iniciales al pasar a SP-B.
 - **Contrato aprobado:** Potion Pouch 9, Totem Pouch 15, identidad por item y componentes completos,
   Potion Pouch extrae una poción para uso vanilla, sólo `minecraft:totem_of_undying`, `F` desplaza
-  primero el offhand al inventario o rechaza atómicamente, nesting prohibido y capacidades constantes.
+  primero el offhand al inventario o rechaza atómicamente, el Totem Pouch vive sólo en el inventario
+  principal fuera de la hotbar, nesting prohibido y capacidades constantes.
 
 ## Gate SP-B — Componente homogéneo y transacciones
 
@@ -186,17 +187,44 @@ observado desde Forged y son hipótesis que StockPouches debe confirmar.
   tras una activación.
 - **Dependencias:** SP03–SP04 y decisión de variantes en SP02.
 - **Pensamiento:** Alto.
+- **Estado:** completada el 2026-10-06.
+- **Implementación:** `TotemPouchItem` reutiliza el componente homogéneo y las transacciones de
+  SP-B con capacidad constante 15 y acepta exclusivamente `minecraft:totem_of_undying`. El item no
+  declara `DEATH_PROTECTION`, no es equipable y no implementa uso, tick, muerte ni reposición; tanto
+  el pouch como sus reservas permanecen inertes hasta una extracción explícita.
 
 ### SP08 — Implementar `F` como extracción intencional
 
-- **Objetivo:** con Totem Pouch en mano principal, cancelar el swap vanilla y mover exactamente un
-  tótem al offhand sin colocar allí el pouch.
+- **Objetivo:** con un Totem Pouch en el inventario principal, cancelar el swap vanilla y mover
+  exactamente un tótem al offhand sin colocar allí el pouch.
 - **Recomendación para offhand ocupado:** mover primero el item anterior al inventario y completar la
   extracción sólo si toda la transacción cabe; con inventario lleno, rechazar sin cambios.
-- **Casos límite:** pouch vacío, espectador, offhand lleno, inventario lleno, pouch en hotbar frente a
-  inventario principal, spam de `F` y otro mod que cancele/modifique el swap.
+- **Casos límite:** pouch vacío, espectador, offhand lleno, inventario lleno, intento de poner el pouch
+  en hotbar/manos, varios pouches, spam de `F` y otro mod que cancele/modifique el swap.
 - **Dependencia:** SP07 y aprobación de la semántica del offhand.
 - **Pensamiento:** Muy alto.
+- **Estado:** completada el 2026-10-06.
+- **Implementación:** un Mixin server-side limitado a `handlePlayerAction` intercepta únicamente
+  `SWAP_ITEM_WITH_OFFHAND`, después de la comprobación de hilo/carga vanilla, cuando hay un Totem
+  Pouch utilizable en los 27 slots del inventario principal. `TotemSwapTransactions` planifica
+  primero el traslado completo del offhand a stacks parciales y slots libres, excluyendo el slot del
+  pouch; sólo entonces descuenta
+  un tótem y aplica todos los cambios. Pouch vacío, datos forjados, espectador o falta de espacio
+  cancelan el swap sin mover nada. Al no interceptar otros items y ser una inyección cancelable en el
+  flujo vanilla, una cancelación anterior de otro mod conserva prioridad. Los slots de hotbar y
+  offhand rechazan el pouch en los flujos de menú vanilla; un intento directo mantiene el pouch en el
+  cursor y muestra un aviso visible. Con una pantalla de inventario abierta, `F` sobre el pouch se
+  intercepta antes del swap predicho por el cliente y envía una acción dedicada, validada por el
+  servidor, que extrae desde el slot o desde el stack sostenido por el cursor. Las teclas numéricas
+  tampoco pueden enviarlo a la hotbar. El tick server-side sólo reubica estados
+  introducidos por vías externas cuando existe un hueco real, sin intercambiar, destruir ni soltar
+  objetos. El clic derecho de inventario conserva la extracción de una unidad al cursor/slot.
+- **Entrega incremental:** registrado en ambas creative tabs, con modelo sobre el sprite aportado y
+  traducciones sincronizadas en inglés y los siete locales españoles. La receta/progresión permanece
+  en SP10.
+- **Tests:** seis casos dedicados cubren offhand vacío, consolidación y reparto del item previo,
+  extracción con el pouch sostenido por el cursor, rollback con inventario lleno, exclusión del slot
+  del pouch y contenido forjado no-tótem. Suite total: 25/25; `gradlew build` correcto con JDK 25.
 
 ## Gate SP-E — Persistencia, seguridad y entrega
 

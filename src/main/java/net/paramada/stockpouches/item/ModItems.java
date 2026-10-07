@@ -20,6 +20,7 @@ public final class ModItems {
     public static final Item RANGER_POUCH = register(ModItemIds.RANGER_POUCH, ModItemTags.RANGER);
     public static final Item FARMER_POUCH = register(ModItemIds.FARMER_POUCH, ModItemTags.FARMER);
     public static final Item POTION_POUCH = registerPotionPouch();
+    public static final Item TOTEM_POUCH = registerTotemPouch();
 
     private ModItems() {}
 
@@ -44,6 +45,18 @@ public final class ModItems {
         );
     }
 
+    private static Item registerTotemPouch() {
+        Item.Properties properties = new Item.Properties()
+                .stacksTo(1)
+                .component(ModDataComponents.SINGLE_TYPE_POUCH_CONTENTS, SingleTypePouchContents.EMPTY)
+                .setId(ModItemIds.TOTEM_POUCH);
+        return Registry.register(
+                BuiltInRegistries.ITEM,
+                ModItemIds.TOTEM_POUCH,
+                new TotemPouchItem(properties)
+        );
+    }
+
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
             entries.accept(QUARRY_POUCH);
@@ -52,6 +65,7 @@ public final class ModItems {
             entries.accept(RANGER_POUCH);
             entries.accept(FARMER_POUCH);
             entries.accept(POTION_POUCH);
+            entries.accept(TOTEM_POUCH);
         });
     }
 }
